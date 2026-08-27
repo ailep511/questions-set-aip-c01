@@ -86,7 +86,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               <span className="text-[11px] font-bold uppercase tracking-widest text-[#9CA3AF]">
                 Question
               </span>
-              <h2 className={`${questionTextClass} font-serif font-bold text-[#F3F4F6] leading-relaxed whitespace-pre-line`}>
+              <h2 className={`${questionTextClass} font-bold text-[#F3F4F6] leading-relaxed whitespace-pre-line`}>
                 {question.question}
               </h2>
 

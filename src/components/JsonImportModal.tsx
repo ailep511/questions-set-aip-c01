@@ -136,7 +136,7 @@ export const JsonImportModal: React.FC<JsonImportModalProps> = ({
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-[#1F2430] flex items-center justify-between">
           <div>
-            <h3 className="font-serif font-bold text-base sm:text-lg text-[#F3F4F6] flex items-center gap-2">
+            <h3 className="font-bold text-base sm:text-lg text-[#F3F4F6] flex items-center gap-2">
               <FileCode className="w-5 h-5 text-[#C5A059]" />
               <span>Load JSON Exam Files</span>
             </h3>
@@ -312,7 +312,7 @@ export const JsonImportModal: React.FC<JsonImportModalProps> = ({
                 className="p-4 rounded-xl border border-[#1F2430] bg-[#161922] hover:border-[#C5A059]/50 cursor-pointer transition flex items-center justify-between gap-3"
               >
                 <div>
-                  <h4 className="font-serif font-bold text-sm text-[#F3F4F6] flex items-center gap-2">
+                  <h4 className="font-bold text-sm text-[#F3F4F6] flex items-center gap-2">
                     <span>AWS Certified Generative AI Exam</span>
                     <span className="px-2 py-0.5 rounded-full bg-[#C5A059]/20 text-[#DFB76C] text-[10px] font-mono">
                       {DEFAULT_AWS_EXAM_JSON.length} Questions
@@ -332,7 +332,7 @@ export const JsonImportModal: React.FC<JsonImportModalProps> = ({
                 className="p-4 rounded-xl border border-[#1F2430] bg-[#161922] hover:border-[#C5A059]/50 cursor-pointer transition flex items-center justify-between gap-3"
               >
                 <div>
-                  <h4 className="font-serif font-bold text-sm text-[#F3F4F6] flex items-center gap-2">
+                  <h4 className="font-bold text-sm text-[#F3F4F6] flex items-center gap-2">
                     <span>Machine Learning Fundamentals</span>
                     <span className="px-2 py-0.5 rounded-full bg-[#1F2430] text-[#D1D5DB] text-[10px] font-mono">
                       Sample
@@ -352,7 +352,7 @@ export const JsonImportModal: React.FC<JsonImportModalProps> = ({
                 className="p-4 rounded-xl border border-[#1F2430] bg-[#161922] hover:border-[#C5A059]/50 cursor-pointer transition flex items-center justify-between gap-3"
               >
                 <div>
-                  <h4 className="font-serif font-bold text-sm text-[#F3F4F6] flex items-center gap-2">
+                  <h4 className="font-bold text-sm text-[#F3F4F6] flex items-center gap-2">
                     <span>Frontend & React Concepts</span>
                     <span className="px-2 py-0.5 rounded-full bg-[#1F2430] text-[#D1D5DB] text-[10px] font-mono">
                       Sample

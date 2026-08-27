@@ -135,7 +135,7 @@ export const ExamScoreReport: React.FC<ExamScoreReportProps> = ({
           )}
         </div>
 
-        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#F3F4F6] mb-1">
+        <h2 className="text-2xl sm:text-3xl font-bold text-[#F3F4F6] mb-1">
           {isPassed ? 'Exam Passed! 🎉' : 'Keep Practicing! 💪'}
         </h2>
         <p className="text-sm text-[#9CA3AF] mb-6 max-w-md mx-auto">
@@ -246,7 +246,7 @@ export const ExamScoreReport: React.FC<ExamScoreReportProps> = ({
 
       {/* Detailed Question Review List */}
       <div className="bg-[#12141A] border border-[#1F2430] rounded-2xl p-4 sm:p-6 shadow-xl">
-        <h3 className="text-base font-serif font-bold text-[#F3F4F6] mb-4">
+        <h3 className="text-base font-bold text-[#F3F4F6] mb-4">
           Question Breakdown & Results
         </h3>
 
@@ -275,7 +275,7 @@ export const ExamScoreReport: React.FC<ExamScoreReportProps> = ({
 
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <span className="font-serif font-bold text-xs text-[#F3F4F6]">
+                    <span className="font-bold text-xs text-[#F3F4F6]">
                       Q{r.index + 1}
                     </span>
                     <span className="text-[11px] font-mono text-[#9CA3AF]">

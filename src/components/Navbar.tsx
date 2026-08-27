@@ -65,11 +65,11 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Left: Brand & Mode Pills */}
         <div className="flex items-center gap-2 sm:gap-4">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#C5A059] flex items-center justify-center text-[#0A0B0E] font-serif font-black text-lg shadow-sm shadow-[#C5A059]/30">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#C5A059] flex items-center justify-center text-[#0A0B0E] font-black text-lg shadow-sm shadow-[#C5A059]/30">
               Q
             </div>
             <div>
-              <h1 className="text-sm sm:text-base font-serif font-bold text-[#F3F4F6] tracking-tight leading-tight">
+              <h1 className="text-sm sm:text-base font-bold text-[#F3F4F6] tracking-tight leading-tight">
                 Exam Simulator
               </h1>
               <p className="text-[11px] text-[#9CA3AF] hidden sm:block">

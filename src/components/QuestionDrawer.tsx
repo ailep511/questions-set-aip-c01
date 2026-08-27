@@ -86,7 +86,7 @@ export const QuestionDrawer: React.FC<QuestionDrawerProps> = ({
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-[#1F2430] flex items-center justify-between">
           <div>
-            <h3 className="font-serif font-bold text-base text-[#F3F4F6]">
+            <h3 className="font-bold text-base text-[#F3F4F6]">
               Question Navigator
             </h3>
             <p className="text-xs text-[#9CA3AF]">

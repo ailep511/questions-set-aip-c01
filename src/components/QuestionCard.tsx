@@ -124,7 +124,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
 
       {/* Question Text */}
       <div className="mb-6">
-        <h2 className={`${questionTextClass} font-serif font-bold text-[#F3F4F6] leading-relaxed whitespace-pre-line tracking-tight`}>
+        <h2 className={`${questionTextClass} font-bold text-[#F3F4F6] leading-relaxed whitespace-pre-line tracking-tight`}>
           {question.question}
         </h2>
       </div>

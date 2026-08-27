@@ -436,7 +436,7 @@ export default function App() {
                 {mode === 'practice' ? '⚡ Instant Feedback Mode' : mode === 'exam' ? '⏱️ Timed Simulation' : '🗂️ Study Flashcards'}
               </span>
             </div>
-            <h2 className="text-lg sm:text-2xl font-serif font-bold text-[#F3F4F6] tracking-tight mt-1">
+            <h2 className="text-lg sm:text-2xl font-bold text-[#F3F4F6] tracking-tight mt-1">
               {examTitle}
             </h2>
           </div>

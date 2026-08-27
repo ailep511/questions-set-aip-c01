@@ -81,7 +81,7 @@ export const StartQuizModal: React.FC<StartQuizModalProps> = ({
               <Sparkles className="w-3.5 h-3.5" />
               <span>Session Setup</span>
             </div>
-            <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#F3F4F6]">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#F3F4F6]">
               Choose Questions to Practice
             </h2>
             <p className="text-xs sm:text-sm text-[#9CA3AF] mt-1">
