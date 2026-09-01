@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   CheckCircle2, 
   XCircle, 
@@ -45,6 +45,17 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
   onToggleFlag,
 }) => {
   const [expandedExplanations, setExpandedExplanations] = useState<Record<string, boolean>>({});
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top of card when question changes
+  useEffect(() => {
+    if (cardRef.current) {
+      cardRef.current.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+      });
+    }
+  }, [currentIndex]);
 
   const toggleExplanation = (optionId: string) => {
     setExpandedExplanations(prev => ({
@@ -77,7 +88,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
     : 'text-sm sm:text-base';
 
   return (
-    <div className="w-full bg-[#12141A] border border-[#1F2430] rounded-2xl p-4 sm:p-7 shadow-xl transition-all">
+    <div ref={cardRef} className="w-full bg-[#12141A] border border-[#1F2430] rounded-2xl p-4 sm:p-7 shadow-xl transition-all">
       
       {/* Header bar: Question index, Multi-select badge, Category, Flag button */}
       <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-[#1F2430]">

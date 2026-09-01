@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   RotateCw, 
   CheckCircle2, 
@@ -31,6 +31,17 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
   onPrev,
 }) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top when card changes
+  useEffect(() => {
+    if (cardRef.current) {
+      cardRef.current.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+      });
+    }
+  }, [currentIndex]);
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
@@ -53,7 +64,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
     : 'text-base sm:text-lg';
 
   return (
-    <div className="w-full max-w-3xl mx-auto space-y-4">
+    <div ref={cardRef} className="w-full max-w-3xl mx-auto space-y-4">
       {/* Flashcard Card Container */}
       <div 
         onClick={handleFlip}
