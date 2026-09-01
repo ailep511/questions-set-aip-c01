@@ -241,7 +241,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
                   </button>
 
                   {isExpanded && (
-                    <div className="mt-2 space-y-2 text-xs text-[#D1D5DB] leading-relaxed">
+                    <div className="mt-2 space-y-2 text-sm text-[#D1D5DB] leading-relaxed">
                       {option.explanation && (
                         <p className="bg-[#161922] p-3 rounded-lg border border-[#1F2430]">
                           {option.explanation}
@@ -282,7 +282,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
             <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
             <span>General Overview</span>
           </div>
-          <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#D1D5DB] leading-relaxed">
             {question.explanation}
           </p>
         </div>
