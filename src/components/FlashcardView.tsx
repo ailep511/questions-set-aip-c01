@@ -40,6 +40,10 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
         behavior: 'smooth', 
         block: 'start'
       });
+      // Add breathing room at the top on mobile
+      setTimeout(() => {
+        window.scrollBy({ top: -20, behavior: 'smooth' });
+      }, 100);
     }
   }, [currentIndex]);
 
