@@ -157,12 +157,12 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
               containerStyle = 'border-emerald-500/80 bg-emerald-950/30';
               badgeStyle = 'bg-emerald-600 text-white border-emerald-500 font-bold';
             } else if (isSelected && !isCorrect) {
-              // Highlight incorrect choice
+              // Highlight incorrect choice - maintain same opacity as correct
               containerStyle = 'border-rose-500/80 bg-rose-950/30';
               badgeStyle = 'bg-rose-600 text-white border-rose-500 font-bold';
             } else {
-              // Unselected other options
-              containerStyle = 'border-[#1F2430]/60 bg-[#12141A]/50 opacity-60';
+              // Unselected other options - maintain visibility
+              containerStyle = 'border-[#1F2430] bg-[#161922]';
             }
           } else if (isSelected) {
             // Selected before checking
