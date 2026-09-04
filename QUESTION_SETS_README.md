@@ -6,6 +6,9 @@ This application now supports multiple question sets that can be selected from t
 
 - **Set-001**: AWS Certified Generative AI - Part 1 (31 questions)
 - **Set-002**: AWS Certified Generative AI - Part 2 (30 questions)
+- **Set-P01**: AWS Certified Generative AI - Practice Set (20 questions)
+
+**Total: 81 questions across 3 sets**
 
 ## File Structure
 
