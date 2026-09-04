@@ -12,7 +12,8 @@ import { StartQuizModal } from './components/StartQuizModal';
 import { ExamScoreReport } from './components/ExamScoreReport';
 import { FlashcardView } from './components/FlashcardView';
 import { MobileBottomBar } from './components/MobileBottomBar';
-import { DEFAULT_AWS_EXAM_JSON, normalizeQuestions } from './data/defaultExam';
+import { normalizeQuestions } from './data/defaultExam';
+import { QUESTION_SETS, DEFAULT_SET } from './data/questionSets';
 import { NormalizedQuestion, TextScale } from './types';
 import { sounds } from './utils/sound';
 import confetti from 'canvas-confetti';
@@ -29,12 +30,13 @@ import {
 
 export default function App() {
   // Questions and Exam Info
-  const [examTitle, setExamTitle] = useState<string>("AWS Certified Generative AI Exam");
+  const [currentSetId, setCurrentSetId] = useState<string>(DEFAULT_SET.id);
+  const [examTitle, setExamTitle] = useState<string>(DEFAULT_SET.description);
   const [allQuestionsPool, setAllQuestionsPool] = useState<NormalizedQuestion[]>(() => {
-    return normalizeQuestions(DEFAULT_AWS_EXAM_JSON);
+    return normalizeQuestions(DEFAULT_SET.questions);
   });
   const [questions, setQuestions] = useState<NormalizedQuestion[]>(() => {
-    return normalizeQuestions(DEFAULT_AWS_EXAM_JSON);
+    return normalizeQuestions(DEFAULT_SET.questions);
   });
   const [selectedCountSetting, setSelectedCountSetting] = useState<number | 'all'>('all');
   const [isStartSetupOpen, setIsStartSetupOpen] = useState<boolean>(false);
@@ -351,6 +353,28 @@ export default function App() {
     setExamStartTime(Date.now());
   };
 
+  // Change question set
+  const handleSelectSet = (setId: string) => {
+    const selectedSet = QUESTION_SETS.find(s => s.id === setId);
+    if (!selectedSet) return;
+    
+    const normalizedQuestions = normalizeQuestions(selectedSet.questions);
+    setCurrentSetId(setId);
+    setAllQuestionsPool(normalizedQuestions);
+    setQuestions(normalizedQuestions);
+    setSelectedCountSetting('all');
+    setExamTitle(selectedSet.description);
+    setSelectedAnswers({});
+    setCheckedQuestions({});
+    setFlaggedQuestions({});
+    setCurrentIndex(0);
+    setIsExamSubmitted(false);
+    setTimeRemaining(normalizedQuestions.length * 120);
+    setExamStartTime(Date.now());
+    
+    setToastMessage(`📚 Loaded ${selectedSet.name} with ${selectedSet.questionCount} questions!`);
+  };
+
   // Keyboard navigation & quick shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -423,6 +447,13 @@ export default function App() {
         totalQuestions={questions.length}
         timeRemainingSeconds={timeRemaining}
         isExamSubmitted={isExamSubmitted}
+        currentSetId={currentSetId}
+        onSelectSet={handleSelectSet}
+        availableSets={QUESTION_SETS.map(s => ({
+          id: s.id,
+          name: s.name,
+          questionCount: s.questionCount
+        }))}
       />
 
       {/* Main Content Area */}

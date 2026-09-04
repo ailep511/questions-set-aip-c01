@@ -11,7 +11,8 @@ import {
   RotateCcw,
   ListOrdered,
   Type,
-  Shuffle
+  Shuffle,
+  Layers
 } from 'lucide-react';
 import { TextScale } from '../types';
 
@@ -32,6 +33,9 @@ interface NavbarProps {
   totalQuestions: number;
   timeRemainingSeconds: number;
   isExamSubmitted: boolean;
+  currentSetId?: string;
+  onSelectSet?: (setId: string) => void;
+  availableSets?: Array<{ id: string; name: string; questionCount: number }>;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -51,6 +55,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   totalQuestions,
   timeRemainingSeconds,
   isExamSubmitted,
+  currentSetId,
+  onSelectSet,
+  availableSets = [],
 }) => {
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -146,6 +153,26 @@ export const Navbar: React.FC<NavbarProps> = ({
               {totalQuestions}
             </span>
           </button>
+
+          {/* Question Set Selector */}
+          {availableSets.length > 0 && onSelectSet && (
+            <div className="relative">
+              <select
+                id="question-set-selector"
+                value={currentSetId}
+                onChange={(e) => onSelectSet(e.target.value)}
+                className="appearance-none flex items-center gap-1.5 pl-8 pr-3 py-1.5 rounded-xl border border-[#C5A059]/40 bg-[#12141A] text-[#DFB76C] hover:bg-[#181B23] text-xs font-semibold transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#C5A059]/50"
+                title="Select question set"
+              >
+                {availableSets.map((set) => (
+                  <option key={set.id} value={set.id} className="bg-[#12141A] text-[#DFB76C]">
+                    {set.name} ({set.questionCount}Q)
+                  </option>
+                ))}
+              </select>
+              <Layers className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#C5A059] pointer-events-none" />
+            </div>
+          )}
 
           {/* Setup / Question count button */}
           {onOpenSetup && (
